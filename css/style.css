@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255, 110, 26);
+    padding: 1rem 0;
+}
+.menu{
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+}
+.icons-nav{
+    width: 4rem;
+    height: 4rem;
+}
+.icon-text{
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+.cart{
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+}
+.brands{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50rem;
+    
+}
+.img-brands{
+    width: 10rem;
+    height: 3rem;
+}
