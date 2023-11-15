@@ -10,21 +10,38 @@
 <body>
     <header>
        <nav>
-           <div class="menu">
-               <img class="icons-nav" src="icons/menu.png" alt="">
-               <h3 class="icon-text">Menu</h3>
+           <div class="menu" id="menu">
+                <img class="icons-nav" src="assets/menu.svg" alt="">
+                <h3 class="icon-text">SuperBikes</h3>
            </div>
            <div class="brands">
-               <img class="img-brands" src="icons/ktm.png" alt="">
-               <img class="img-brands" src="icons/yamaha.png" alt="">
-               <img class="img-brands" src="icons/kawa.png" alt="">
-               <img class="img-brands" src="icons/ducati.png" alt="">
+               <img class="img-brands" id="ktm" src="icons/ktm.png" alt="">
+               <img class="img-brands" id="yamaha" src="icons/yamaha.png" alt="">
+               <img class="img-brands" id="kawasaki" src="icons/kawa.png" alt="">
+               <img class="img-brands" id="ducati" src="icons/ducati.png" alt="">
            </div>
            <div class="cart">
-               <img class="icons-nav" src="icons/carrito-de-compras.png" alt="">
+               <img class="icons-nav" src="assets/carrito.svg" alt="">
                <h3 class="icon-text">Carrito</h3>
            </div>
        </nav>
+       <div class="drop-menu" id="drop-menu">
+           <div class="search">
+                <h3 class="titule-search">Buscar</h3>
+                <input class="input-search" type="search" name="" id="">
+           </div>
+           <div class="categories">
+                <h3>Categorias</h3>
+                <ul class="list-categories">
+                    <li id="sport" class="item-categories">Deportivas</li>
+                    <li id="naked" class="item-categories">Naked</li>
+                    <li id="adventure" class="item-categories">Adventure</li>
+                    <li id="cross" class="item-categories">Cross</li>
+                </ul>
+           </div>
+           <a href=""><button>Agregar</button></a>
+           
+       </div>
     </header>
     <script src="javascript/script.js"></script>
 </body>

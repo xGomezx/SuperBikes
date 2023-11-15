@@ -1,11 +1,16 @@
-const carousel = document.querySelector(".carousel");
-const slides = carousel.querySelectorAll(".slide");
+const menu = document.getElementById("menu")
+const dropMenu = document.getElementById("drop-menu")
+let enableMenu = 0;
 
-
-
-setInterval(() => {
-    slides[currentSlide].classList.remove("active");
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add("active");
-  }, 3000);
+menu.addEventListener("click",()=>{
+  if (enableMenu == 0) {
+    dropMenu.style.display = "flex"
+    dropMenu.style.flexDirection = "column"
+    dropMenu.style.alignItems = "center"
+    enableMenu = 1
+  }else if (enableMenu == 1) {
+    dropMenu.style.display = "none"
+    enableMenu = 0
+  }
   
+})
