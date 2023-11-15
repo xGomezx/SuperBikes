@@ -56,6 +56,8 @@ nav{
     padding: 2rem 0;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .4);
     border-radius: 0 0.5rem 0.5rem 0 ;
+    position: fixed;
+    z-index: 1000;
 }
 .search{
     display: flex;
@@ -115,4 +117,36 @@ nav{
 }
 #cross:hover{
     background-color: rgb(87, 86, 86);
+}
+
+/* targetas de productos */
+.product-card{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: beige;
+    padding: 2rem 0;
+    border-radius: 1.5rem;
+}
+.img-product{
+    width: 85%;
+    height: 15rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+.product-description{
+    text-align:justify;
+    width: 90%;
+    margin: 1rem 0;
+}
+.product-info{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-left: 2rem;
+    gap: 0.7rem;
+}
+.product-price{
+    display: flex;
 }
