@@ -86,19 +86,14 @@ nav{
     cursor: pointer;
     padding: 0.2rem 2rem;
 }
-.drop-menu a{
-    width: 15rem;
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    margin-top: 3rem;
-}
 .drop-menu button{
-    width: 100%;
+    width: 13rem;
+    margin-top: 3rem;
     padding: 0.5rem 0;
     border-radius: 0.5rem;
     border: none;
     cursor: pointer;
+    transition: .5s;
 }
 
 .drop-menu button:hover{
@@ -120,20 +115,39 @@ nav{
 }
 
 /* targetas de productos */
+main{
+    display: flex;
+    justify-content: center;
+}
+.products{
+    width: 90%;
+    margin-top: 2rem;
+}
+
 .product-card{
     width: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: beige;
+    background-color: #4c4c4c;
     padding: 2rem 0;
     border-radius: 1.5rem;
+    border: 1px solid black;
+    color: white;
+    transition: .5s;
+    z-index: 500;
+    position: fixed;
+}
+.product-card:hover{
+    box-shadow: 7px 0 45px rgb(115, 115, 115);
+    transform: scale(101%);
 }
 .img-product{
     width: 85%;
     height: 15rem;
     border-radius: 0.5rem;
     margin-top: 1rem;
+    border: 1px solid black;
 }
 .product-description{
     text-align:justify;
@@ -144,9 +158,75 @@ nav{
     display: flex;
     flex-direction: column;
     align-self: flex-start;
-    margin-left: 2rem;
     gap: 0.7rem;
+    width: 90%;
+    margin-left: 1.5rem;
 }
 .product-price{
     display: flex;
+    font-size: 1.2rem;
+}
+.button-add{
+    align-self: center;
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    margin-top: 2rem;
+    transition: .5s;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.button-add:hover{
+    background-color: #c2c2c2;
+    border: none;
+}
+
+/* ventana agregar productos */
+
+.products-form{
+    background-color: bisque;
+    margin-top: 5rem;
+    border-radius: 0.3rem;
+    position: fixed;
+    width: 35%;
+    height: 40rem;
+    z-index: 1500;
+    display: flex;
+    flex-flow: column;
+    align-content: flex-end;
+    visibility: hidden;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .7);
+}
+.close-form{
+    width: 3rem;
+    height: 3rem;
+    justify-self: end;
+    cursor: pointer;
+    padding: 0;
+}
+.top-form{
+    display: flex;
+    justify-content: center;
+}
+.products-form h2{
+    align-self: center;
+    margin-top: 2rem;
+    width: 90%;
+    text-align: center;
+}
+.form{
+    width: 40%;
+    padding-left: 2rem;
+    padding-top: 3rem;
+}
+.txtName{
+    background-color: transparent;
+    border: none;
+    border-bottom: #1c1c1c 1px solid;
+    outline: none;
+    padding: 0.3rem 1.5rem;
+    font-size: 1rem;
+}
+.txtName:focus{
+    background-color: rgb(225, 224, 224);
 }

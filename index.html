@@ -39,7 +39,7 @@
                     <li id="cross" class="item-categories">Cross</li>
                 </ul>
            </div>
-           <a href=""><button>Agregar</button></a>
+           <button id="open-form">Agregar SuperBike</button>
        </div>
     </header>
     <main>
@@ -51,14 +51,29 @@
                 </p>
                 <div class="product-info">
                     <p class="product-categori">Categoria: Naked</p>
-                    <p class="product-stock">Cantidad: 6</p>
+                    <p class="product-stock">Disponibles: 6</p>
                     <div class="product-price">
                         <p class="p-price">Precio COP: $</p>
-                        <p class="price">120.000.000.00</p>
+                        <p class="price">120.000.000.oo</p>
                     </div>
-                    <input type="button" value="Agregar al carrito">
+                    
                 </div>
+                <input class="button-add" type="button" value="Agregar al carrito">
             </section>
+        </div>
+        <div class="products-form" id="products-form">
+            <div class="top-form">
+                <h2>Agrega tu SuperBike</h2>
+                <img id="closeForm" class="close-form" src="assets/close.svg" alt="">
+            </div>
+           
+            <div class="form" >
+                <label for="">Imagen:</label>
+                <input type="file" name="" id="">
+                <label for="">Nombre</label><br>
+                <input class="txtName"type="text">
+            </div>
+            
         </div>
     </main>
     <script src="javascript/script.js"></script>
