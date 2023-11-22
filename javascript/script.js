@@ -40,3 +40,4 @@ selectImg.addEventListener('change',(event)=>{
   
 })
 
+const showCart = document.getElementById('showCart')

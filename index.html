@@ -20,8 +20,8 @@
                <img class="img-brands" id="kawasaki" src="icons/kawa.png" alt="">
                <img class="img-brands" id="ducati" src="icons/ducati.png" alt="">
            </div>
-           <div class="cart">
-               <img class="icons-nav" src="assets/carrito.svg" alt="">
+           <div class="cart" id="showCart">
+               <img  class="icons-nav" src="assets/carrito.svg" alt="">
                <h3 class="icon-text">Carrito</h3>
            </div>
        </nav>
@@ -95,9 +95,21 @@
             <div class="btnAdd">
                 <input id="btnAddProduct" type="button" value="Agregar">
             </div>
-
-        
-            
+        </div>
+        <div class="shoppingCart">
+            <h2 class="yourCart">Tu carrito</h2>
+            <input id="emptyCart" type="button" value="Vaciar carrito">
+            <div class="productsInCarts">
+                <img class="imgProductCart" src="images/superduke1290.jpg" alt="">
+                <div class="productInfo">
+                    <h2 class="cartTitule">KTM Super Duke 1290r</h2>
+                    <p>Categoria: Naked</p>
+                    <p>Precio COP: $120000000</p>
+                </div>
+                <div class="quantityProducts">
+                    <input class="amount" type="number" min="0" id="" placeholder="0">
+                </div>
+            </div>
         </div>
     </main>
     <script src="javascript/script.js"></script>
