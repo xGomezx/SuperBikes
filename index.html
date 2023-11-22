@@ -54,7 +54,7 @@
                     <p class="product-stock">Disponibles: 6</p>
                     <div class="product-price">
                         <p class="p-price">Precio COP: $</p>
-                        <p class="price">120.000.000.oo</p>
+                        <p class="price">120000000oo</p>
                     </div>
                     
                 </div>
@@ -66,13 +66,37 @@
                 <h2>Agrega tu SuperBike</h2>
                 <img id="closeForm" class="close-form" src="assets/close.svg" alt="">
             </div>
-           
+           <div class="containerForm">
             <div class="form" >
-                <label for="">Imagen:</label>
-                <input type="file" name="" id="">
+               
                 <label for="">Nombre</label><br>
-                <input class="txtName"type="text">
+                <input class="txtForm" type="text">
+
+                <label for="">Imagen:</label>
+                <input id="selectImg" class="txtForm" type="file">
+
+                <label for="">Descripcion</label>
+                <input class="txtForm" type="text">
+
+                <label for="">Categoria:</label>
+                <input class="txtForm" type="text">
+
+                <label for="">Cantidad:</label>
+                <input class="txtForm" type="number" min="0">
+
+                <label for="">Precio:</label>
+                <input class="txtForm" type="number" min="2000000" step="1000000">
             </div>
+            <div id="showImg">
+                <img id="chargeImg" src="" alt="">
+            </div>
+           </div>
+           
+            <div class="btnAdd">
+                <input id="btnAddProduct" type="button" value="Agregar">
+            </div>
+
+        
             
         </div>
     </main>

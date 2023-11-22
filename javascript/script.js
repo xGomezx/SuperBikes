@@ -26,3 +26,17 @@ openForm.addEventListener("click",()=>{
 closeForm.addEventListener("click",()=>{
   formProducts.style.visibility="hidden"
 })
+
+
+const selectImg = document.getElementById('selectImg'),
+      chargeImg = document.getElementById('chargeImg')
+
+selectImg.addEventListener('change',(event)=>{
+
+  const file = event.target.files[0];
+  const imageURL = URL.createObjectURL(file);
+
+  chargeImg.src = imageURL;
+  
+})
+
