@@ -41,3 +41,12 @@ selectImg.addEventListener('change',(event)=>{
 })
 
 const showCart = document.getElementById('showCart')
+const openCart = document.getElementById('openCart')
+const closeCart = document.getElementById('closeCart')
+
+showCart.addEventListener("click",()=>{
+  openCart.style.visibility="visible"
+})
+closeCart.addEventListener("click",()=>{
+  openCart.style.visibility="hidden"
+})

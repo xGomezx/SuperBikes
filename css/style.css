@@ -29,6 +29,7 @@ nav{
     display: flex;
     align-items: center;
     margin-right: 2rem;
+    cursor: pointer;
 }
 .brands{
     display: flex;
@@ -295,6 +296,9 @@ main{
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
     visibility: hidden;
 }
+#closeCart{
+    margin-right: 3rem;
+}
 .productsInCarts{
     width: 85%;
     height: 10rem;
@@ -310,6 +314,8 @@ main{
     font-size: 2.5rem;
     margin: 2rem 0 0 3rem;
     color: #ffff;
+    display: flex;
+    justify-content: space-between;
 }
 #emptyCart{
     font-size: 1.2rem;
