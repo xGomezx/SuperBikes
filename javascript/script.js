@@ -50,3 +50,6 @@ showCart.addEventListener("click",()=>{
 closeCart.addEventListener("click",()=>{
   openCart.style.visibility="hidden"
 })
+
+
+
