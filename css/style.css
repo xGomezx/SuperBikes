@@ -285,7 +285,7 @@ main{
 .shoppingCart{
     width: 40rem;
     height: 87vh;
-    background-color: #373737;
+    background-color: #090909;
     position: fixed;
     right: 0;
     margin:1rem 1rem 0 0;
@@ -294,6 +294,7 @@ main{
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+    z-index: 1000;
     visibility: hidden;
 }
 #closeCart{
@@ -302,13 +303,13 @@ main{
 .productsInCarts{
     width: 85%;
     height: 10rem;
-    background-color: #606060;
+    background-color: #ffff;
     align-self: center;
     margin-top: 2rem;
     border-radius: 1rem;
     display: flex;
     align-items: center;
-    
+    box-shadow: 4px 4px 7px 4px #636363;
 }
 .yourCart{
     font-size: 2.5rem;
@@ -335,19 +336,63 @@ main{
     height: 80%;
     margin-left: 2rem;
     border-radius: 0.5rem;
+   
     border: #1c1c1c 1px solid;
 }
 .productInfo{
     margin-left: 1rem;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 .productInfo h2{
     font-size: 1.3rem;
    
 }
-.amount{
-    width: 2rem;
+.quantityProducts{
+    display: grid;
+    flex-flow: column;
+    height: 100%;
+}
+.amount {
+    width: 2.5rem;
+    height: 2rem;
+    font-size: 1.2rem;
     margin-right: 2rem;
     padding-left: 0.2rem;
     outline: none;
+    margin-bottom: 1.5rem;
+    justify-self: center;
+}
+.trash{
+    background-color: red;
+    padding: 0.2rem 0.2rem;
+    border-radius: 50%;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-top: 0.7rem;
+    justify-self: flex-start;
+    cursor: pointer;
+}    
+.buy{
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.btnBuy{
+    width: 35%;
+    padding: 0.5rem 0;
+    border-radius: 0.3rem;
+    font-size: 1.2rem;
+    border: none;
+    align-self: center;
+}
+.btnBuy:hover{
+    background-color: #9a9a9a;
+    color: #ffff;
+}
+.total{
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 3rem;
 }
