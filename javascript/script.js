@@ -31,7 +31,7 @@ closeForm.addEventListener("click",()=>{
 const selectImg = document.getElementById('selectImg'),
       chargeImg = document.getElementById('chargeImg')
 
-selectImg.addEventListener('change',(event)=>{
+selectImg.addEventListener('blur',(event)=>{
 
   const file = event.target.files[0];
   const imageURL = URL.createObjectURL(file);
