@@ -28,18 +28,6 @@ closeForm.addEventListener("click",()=>{
 })
 
 
-const selectImg = document.getElementById('selectImg'),
-      chargeImg = document.getElementById('chargeImg')
-
-selectImg.addEventListener('blur',(event)=>{
-
-  const file = event.target.files[0];
-  const imageURL = URL.createObjectURL(file);
-
-  chargeImg.src = imageURL;
-  
-})
-
 const showCart = document.getElementById('showCart')
 const openCart = document.getElementById('openCart')
 const closeCart = document.getElementById('closeCart')

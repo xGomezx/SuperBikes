@@ -10,6 +10,22 @@ const add = document.getElementById('btnAddProduct')
 const showProducts = document.getElementById('showProducts')
 
 let data = JSON.parse(localStorage.getItem("formData")) || []
+renderCards()
+
+
+
+function validateExistence(){
+
+    let existence = true;
+
+    for (let i = 0; i < data.length; i++) {
+
+        if(data[i].name == txtName.value){
+            existence = false
+        } 
+    }
+    return existence
+}
 
 add.addEventListener('click',function(event){
     event.preventDefault();
@@ -21,14 +37,21 @@ add.addEventListener('click',function(event){
     const amount = txtAmount.value
     const price = txtPrice.value
 
-    let verify = true//validateData();
+    let verify = validateData();
 
     if(verify == true){
-        const newData = {name,img,description,category,amount,price}
-        data.push(newData)
-        saveDataToLocalStorage()
-        renderCards()
-        form.reset()
+        let existence = validateExistence()
+
+        if(existence == true){
+            const newData = {name,img,description,category,amount,price}
+            data.push(newData)
+            saveDataToLocalStorage()
+            renderCards()
+            form.reset()
+        }else{
+            alert("El producto ya existe")
+        }
+      
     }
 })
 
@@ -41,7 +64,6 @@ function renderCards(){
     data.forEach(function(item,index ) {
         
         const targetDiv = document.createElement('div');
-        const imgEdit = document.createElement('img');
         const nameH2 = document.createElement('h2')
         const imgProduct = document.createElement('img')
         const descriptionP = document.createElement('p')
@@ -59,12 +81,10 @@ function renderCards(){
         stockP.textContent = "Disponibles: "+item.amount
         priceP.textContent = "Precio COP: $"+item.price
         buttonInput.value = "Agregar al carrito"
-        imgEdit.src = '../assets/edit.svg'
 
 
         targetDiv.classList.add('products')
         targetDiv.classList.add('product-card')
-        imgEdit.classList.add('editProduct')
         nameH2.classList.add('titule-Product')
         imgProduct.classList.add('img-product')
         descriptionP.classList.add('product-description')
@@ -83,7 +103,6 @@ function renderCards(){
         divInfo.appendChild(categoryP)
         divInfo.appendChild(divPrice)
        
-        targetDiv.appendChild(imgEdit);
         targetDiv.appendChild(nameH2);
         targetDiv.appendChild(imgProduct);
         targetDiv.appendChild(descriptionP);
