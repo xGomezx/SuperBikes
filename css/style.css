@@ -11,7 +11,7 @@ nav{
     display: flex;
     justify-content: space-between;
     background-color: rgb(195 195 195);
-    padding: 1rem 0;
+    padding: 2rem 0;
 }
 .menu{
     display: flex;
@@ -208,7 +208,7 @@ main{
     background-color: #606060;
     border-radius: 0.3rem;
     position: fixed;
-    width: 90rem;
+    width: 95rem;
     height: 47rem;
     z-index: 1500;
     display: flex;
@@ -262,20 +262,33 @@ main{
     background-color: rgb(117, 117, 117);
     border: #c2c2c2;
 }
+
+.selects{
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 0.5rem 0;
+    margin: 0.5rem 0rem 2rem 0rem;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: #1c1c1c 1px solid;
+    color: white;
+}
 .btnAdd{
     width: 100%;
     display: flex;
     justify-content: center;
+    align-content: center;
     
 }
-#btnAddProduct{
+.btnForm{
     padding: 0.5rem 7rem;
-    align-content: center;
+    align-self: center;
     border-radius: 0.5rem;
     border: none;
     font-size: 1.5rem;
 }
-#btnAddProduct:hover{
+.btnForm:hover{
     background-color: rgb(161, 161, 161);
     color: white;
 }

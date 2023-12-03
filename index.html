@@ -68,6 +68,8 @@
             </div>
            <div class="containerForm">
 
+                <!-- Agregar -->
+
                 <form class="form" id="form" action="">
                     <h2>Agrega tu SuperBike</h2>
 
@@ -95,7 +97,42 @@
                     <input id="txtPrice" class="txtForm" type="number" min="2000000" step="1000000">
 
                     <div class="btnAdd">
-                        <input id="btnAddProduct" type="button" value="Agregar">
+                        <input class="btnForm" id="btnAddProduct" type="button" value="Agregar">
+                    </div>
+                </form>
+
+                <!-- Editar -->
+                <form class="form" id="formEditar" action="">
+                    <h2>Edita tu SuperBike</h2>
+
+                    <label for="">Nombre del producto:</label>
+                    <select class="selects" name="" id="editProduct">
+                        <option value="">---</option>
+                    </select>
+
+                    <label for="">Atributo del producto:</label>
+                    <select class="selects" name="" id="editAtribute">
+                        <option value="">---</option>
+                    </select>
+
+                    <label for="">Nuevo valor:</label>
+                    <input id="txtNewValue" class="txtForm" type="text">
+
+                    <div class="btnAdd">
+                        <input class="btnForm" id="btnEditProduct" type="button" value="Editar">
+                    </div>
+                </form>
+                <!-- Eliminar -->
+                <form class="form" id="formDelete" action="">
+                    <h2>Elimina tu SuperBike</h2>
+
+                    <label for="">Nombre del producto:</label>
+                    <select class="selects" name="" id="deleteProduct">
+                        <option value="">---</option>
+                    </select>
+
+                    <div class="btnAdd">
+                        <input class="btnForm" id="btnDeleteProduct" type="button" value="Eliminar">
                     </div>
                 </form>
            </div>
