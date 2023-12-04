@@ -274,6 +274,9 @@ main{
     border-bottom: #1c1c1c 1px solid;
     color: white;
 }
+option{
+    color: black;
+}
 .btnAdd{
     width: 100%;
     display: flex;
@@ -302,7 +305,7 @@ main{
 .shoppingCart{
     width: 40rem;
     height: 87vh;
-    background-color: #090909;
+    background-color: #141c29;
     position: fixed;
     right: 0;
     margin:1rem 1rem 0 0;
