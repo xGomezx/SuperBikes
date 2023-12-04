@@ -144,9 +144,80 @@ function validateData (){
     return true
 }
 
+// editar
 
+const productEd = document.getElementById('editProduct')
+const atributeEd = document.getElementById('editAtribute')
+const valueEd = document.getElementById('txtNewValue')
 
+document.getElementById('btnEditProduct').addEventListener('click',function(event){
 
+    event.preventDefault()
 
+    let dataProduct = productEd.value
+    let dataAtribute = atributeEd.value
+    let dataValue = valueEd.value
+    let van = false
 
+    if (dataProduct == "" || dataAtribute == "" || dataValue == "") {
+        alert('Ninguno de los campos puede estar vacio')
+    } else {
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].name == dataProduct){
+                data[i][dataAtribute] = dataValue;
+                van = true
+            }
+            
+        }
+        if(van == true){
+            alert('Cambio realizado')
+            window.location.reload()
+        }else{
+            alert('No se pudo realizar el cambio, intenta de nuevo')
+        }
+        saveDataToLocalStorage('FormData',data)
+    }
+})
+
+// Eliminar
+
+const productDel = document.getElementById('deleteProduct')
+
+document.getElementById('btnDeleteProduct').addEventListener('click',function(event){
+
+    event.preventDefault()
+
+    let deleteProduct = productDel.value
+    let van = false
+
+    for (let i = 0; i < data.length; i++) {
+        
+        if(data[i].name == deleteProduct){
+            data.splice(i,1)
+            van = true
+        }
+    }
+    if(van == false){
+        alert('No se pudo realizar el cambio, intenta de nuevo')
+    }else{
+        alert('Cambio realizado')
+        window.location.reload()
+    }
+    saveDataToLocalStorage('FormData',data)
+})
+
+// mostrar productos
+
+window.addEventListener('load',()=>{
+    const productEd = document.getElementById('editProduct')
+    const productDel = document.getElementById('deleteProduct')
+
+    for (let i = 0; i < data.length; i++) {
+       productEd.innerHTML += `<option>${data[i].name}</option>`
+       productDel.innerHTML += `<option>${data[i].name}</option>`
+    }
+    Object.keys(data[0]).forEach(Element => {
+        atributeEd.innerHTML += `<option>${Element}</option>`
+    })
+})
 
