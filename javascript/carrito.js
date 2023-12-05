@@ -10,6 +10,11 @@ function getDataToLocalStorage(key) {
 let products = saveDataToLocalStorage('products') || []
 
 
+const infoPurchase = document.getElementById('infoPurchase')
+const openCart = document.getElementById('openCart')
+const productsInCarts = document.getElementById('productsInCarts')
+
+
 
 let list = [];
 let totalValue = 0;

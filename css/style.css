@@ -145,6 +145,7 @@ main{
     transition: .5s;
     z-index: 500;
     justify-content: space-evenly;
+    font-size: 1.1rem;
     /* position: fixed; */
 }
 .product-card:hover{
@@ -175,9 +176,8 @@ main{
     width: 90%;
     margin-left: 1.5rem;
 }
-.product-price{
-    display: flex;
-    font-size: 1.2rem;
+.p-price{
+    font-size: 1.5rem;
 }
 .button-add{
     align-self: center;
@@ -315,7 +315,7 @@ option{
     flex-direction: column;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
     z-index: 1000;
-    visibility: hidden;
+    visibility: visible;
 }
 #closeCart{
     margin-right: 3rem;
@@ -361,21 +361,16 @@ option{
     background-color: #9a9a9a;
     color: #ffff;
 }
-.imgProductCart{
-    width: 40%;
-    height: 80%;
-    margin-left: 2rem;
-    border-radius: 0.5rem;
-   
-    border: #1c1c1c 1px solid;
-}
 .productInfo{
     margin-left: 1rem;
     color: rgb(0, 0, 0);
+    display: flex;
 }
 .productInfo h2{
-    font-size: 1.3rem;
-   
+    font-size: 1.5rem;
+}
+.priceCart{
+    font-size: 1.4rem;
 }
 .quantityProducts{
     display: grid;
