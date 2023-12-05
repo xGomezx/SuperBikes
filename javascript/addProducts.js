@@ -72,7 +72,7 @@ function renderCards(){
         const stockP = document.createElement('p')
         const divPrice = document.createElement('div')
         const priceP = document.createElement('p')
-        const buttonInput = document.createElement('input')
+        const buttonInput = document.createElement('button')
 
         nameH2.textContent = item.name
         imgProduct.src = item.img
@@ -80,7 +80,7 @@ function renderCards(){
         categoryP.textContent = "Categoria: "+item.category
         stockP.textContent = "Disponibles: "+item.amount
         priceP.textContent = "Precio COP: $"+item.price
-        buttonInput.value = "Agregar al carrito"
+        buttonInput.textContent = "Agregar al carrito"
 
 
         targetDiv.classList.add('products')
