@@ -144,20 +144,22 @@
                 <img id="closeCart" class="close-form" src="assets/close.svg" alt=""></h2>
                 <input id="emptyCart" type="button" value="Vaciar carrito">
             </div>
-            <div class="productsInCarts">
-                <div class="productInfo">
-                    <h2 class="cartTitule">KTM Super Duke 1290r</h2>
-                    <p class="priceCart">Precio COP: $120000000</p>
-                </div>
-                <div class="quantityProducts">
-                    <img class="trash" src="assets/trash.svg" alt="">
-                    <input class="amount" type="number" min="0" max="99" id="" placeholder="0">
+            <div class="containerProducts" id="productsInCart">
+                <div class="productsInCarts">
+                    <div class="productInfo">
+                        <h2 class="cartTitule">KTM Super Duke 1290r</h2>
+                        <p class="priceCart">Precio COP: $120000000</p>
+                    </div>
+                    <div class="quantityProducts">
+                        <img class="trash" src="assets/trash.svg" alt="">
+                        <input class="amount" type="number" min="0" max="99" id="" placeholder="0">
+                    </div>
                 </div>
             </div>
             
             <div class="buy">
-                <p class="total">Total:</p>
-                <input class="btnBuy" type="button" value="Confirmar compra">
+                <p id="total" class="total">Total:</p>
+                <button class="btnBuy">Confirmar compra</button>
             </div>
         </div>
 

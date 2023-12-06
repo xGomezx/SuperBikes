@@ -7,20 +7,27 @@ const txtPrice = document.getElementById('txtPrice')
 
 const form = document.getElementById('form')
 const add = document.getElementById('btnAddProduct')
-const showProducts = document.getElementById('showProducts')
-
-let data = JSON.parse(localStorage.getItem("formData")) || []
-renderCards()
 
 
+//renderCards()
+
+function saveDataToLocalStorage(key,dataSave){
+    localStorage.setItem(key,JSON.stringify(dataSave))
+}
+
+function getDataToLocalStorage(key) {
+    let data = JSON.parse(localStorage.getItem(key))
+    return data
+}
+let products = getDataToLocalStorage('products') || []
 
 function validateExistence(){
 
     let existence = true;
 
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < products.length; i++) {
 
-        if(data[i].name == txtName.value){
+        if(products[i].name == txtName.value){
             existence = false
         } 
     }
@@ -37,17 +44,26 @@ add.addEventListener('click',function(event){
     const amount = txtAmount.value
     const price = txtPrice.value
 
-    let verify = validateData();
+    let verify = true//validateData();
 
     if(verify == true){
         let existence = validateExistence()
 
         if(existence == true){
-            const newData = {name,img,description,category,amount,price}
-            data.push(newData)
-            saveDataToLocalStorage()
-            renderCards()
+
+            products.push({
+                nombre: name,
+                urlImagen: img,
+                descripcion: description,
+                categoria:category,
+                cantidad:amount,
+                precio:price
+            })
+            saveDataToLocalStorage('products',products)
+            //renderCards()
             form.reset()
+            window.location.reload()
+            alert('Producto añadido con exito')
         }else{
             alert("El producto ya existe")
         }
@@ -55,65 +71,63 @@ add.addEventListener('click',function(event){
     }
 })
 
-function saveDataToLocalStorage(){
-    localStorage.setItem("formData",JSON.stringify(data))
-}
 
-function renderCards(){
-    showProducts.innerHTML = '';
-    data.forEach(function(item,index ) {
+
+// function renderCards(){
+//     showProducts.innerHTML = '';
+//     products.forEach(function(item,index ) {
         
-        const targetDiv = document.createElement('div');
-        const nameH2 = document.createElement('h2')
-        const imgProduct = document.createElement('img')
-        const descriptionP = document.createElement('p')
-        const divInfo = document.createElement('div')
-        const categoryP = document.createElement('p')
-        const stockP = document.createElement('p')
-        const divPrice = document.createElement('div')
-        const priceP = document.createElement('p')
-        const buttonInput = document.createElement('button')
+//         const targetDiv = document.createElement('div');
+//         const nameH2 = document.createElement('h2')
+//         const imgProduct = document.createElement('img')
+//         const descriptionP = document.createElement('p')
+//         const divInfo = document.createElement('div')
+//         const categoryP = document.createElement('p')
+//         const stockP = document.createElement('p')
+//         const divPrice = document.createElement('div')
+//         const priceP = document.createElement('p')
+//         const buttonInput = document.createElement('button')
 
-        nameH2.textContent = item.name
-        imgProduct.src = item.img
-        descriptionP.textContent = item.description
-        categoryP.textContent = "Categoria: "+item.category
-        stockP.textContent = "Disponibles: "+item.amount
-        priceP.textContent = "Precio COP: $"+item.price
-        buttonInput.textContent = "Agregar al carrito"
-
-
-        targetDiv.classList.add('products')
-        targetDiv.classList.add('product-card')
-        nameH2.classList.add('titule-Product')
-        imgProduct.classList.add('img-product')
-        descriptionP.classList.add('product-description')
-        divInfo.classList.add('product-info')
-        categoryP.classList.add('product-categori')
-        stockP.classList.add('product-stock')
-        divPrice.classList.add('product-price')
-        priceP.classList.add('p-price')
-        buttonInput.classList.add('button-add')
+//         nameH2.textContent = item.name
+//         imgProduct.src = item.img
+//         descriptionP.textContent = item.description
+//         categoryP.textContent = "Categoria: "+item.category
+//         stockP.textContent = "Disponibles: "+item.amount
+//         priceP.textContent = "Precio COP: $"+item.price
+//         buttonInput.textContent = "Agregar al carrito"
 
 
+//         targetDiv.classList.add('products')
+//         targetDiv.classList.add('product-card')
+//         nameH2.classList.add('titule-Product')
+//         imgProduct.classList.add('img-product')
+//         descriptionP.classList.add('product-description')
+//         divInfo.classList.add('product-info')
+//         categoryP.classList.add('product-categori')
+//         stockP.classList.add('product-stock')
+//         divPrice.classList.add('product-price')
+//         priceP.classList.add('p-price')
+//         buttonInput.classList.add('button-add')
 
-        divPrice.appendChild(priceP)
 
-        divInfo.appendChild(stockP)
-        divInfo.appendChild(categoryP)
-        divInfo.appendChild(divPrice)
+
+//         divPrice.appendChild(priceP)
+
+//         divInfo.appendChild(stockP)
+//         divInfo.appendChild(categoryP)
+//         divInfo.appendChild(divPrice)
        
-        targetDiv.appendChild(nameH2);
-        targetDiv.appendChild(imgProduct);
-        targetDiv.appendChild(descriptionP);
-        targetDiv.appendChild(divInfo);
-        targetDiv.appendChild(buttonInput);
+//         targetDiv.appendChild(nameH2);
+//         targetDiv.appendChild(imgProduct);
+//         targetDiv.appendChild(descriptionP);
+//         targetDiv.appendChild(divInfo);
+//         targetDiv.appendChild(buttonInput);
 
-        showProducts.appendChild(targetDiv)
+//         showProducts.appendChild(targetDiv)
 
     
-    });
-}
+//     });
+// }
 
 function validateData (){
 
@@ -162,12 +176,11 @@ document.getElementById('btnEditProduct').addEventListener('click',function(even
     if (dataProduct == "" || dataAtribute == "" || dataValue == "") {
         alert('Ninguno de los campos puede estar vacio')
     } else {
-        for (let i = 0; i < data.length; i++) {
-            if(data[i].name == dataProduct){
-                data[i][dataAtribute] = dataValue;
+        for (let i = 0; i < products.length; i++) {
+            if(products[i].nombre == dataProduct){
+                products[i][dataAtribute] = dataValue;
                 van = true
             }
-            
         }
         if(van == true){
             alert('Cambio realizado')
@@ -175,7 +188,7 @@ document.getElementById('btnEditProduct').addEventListener('click',function(even
         }else{
             alert('No se pudo realizar el cambio, intenta de nuevo')
         }
-        saveDataToLocalStorage('FormData',data)
+        saveDataToLocalStorage('products',products)
     }
 })
 
@@ -190,10 +203,10 @@ document.getElementById('btnDeleteProduct').addEventListener('click',function(ev
     let deleteProduct = productDel.value
     let van = false
 
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < products.length; i++) {
         
-        if(data[i].name == deleteProduct){
-            data.splice(i,1)
+        if(products[i].nombre == deleteProduct){
+            products.splice(i,1)
             van = true
         }
     }
@@ -203,7 +216,7 @@ document.getElementById('btnDeleteProduct').addEventListener('click',function(ev
         alert('Cambio realizado')
         window.location.reload()
     }
-    saveDataToLocalStorage('FormData',data)
+    saveDataToLocalStorage('products',products)
 })
 
 // mostrar productos
@@ -212,11 +225,11 @@ window.addEventListener('load',()=>{
     const productEd = document.getElementById('editProduct')
     const productDel = document.getElementById('deleteProduct')
 
-    for (let i = 0; i < data.length; i++) {
-       productEd.innerHTML += `<option>${data[i].name}</option>`
-       productDel.innerHTML += `<option>${data[i].name}</option>`
+    for (let i = 0; i < products.length; i++) {
+       productEd.innerHTML += `<option>${products[i].nombre}</option>`
+       productDel.innerHTML += `<option>${products[i].nombre}</option>`
     }
-    Object.keys(data[0]).forEach(Element => {
+    Object.keys(products[0]).forEach(Element => {
         atributeEd.innerHTML += `<option>${Element}</option>`
     })
 })

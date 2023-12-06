@@ -315,7 +315,6 @@ option{
     flex-direction: column;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
     z-index: 1000;
-    visibility: hidden;
 }
 #closeCart{
     margin-right: 3rem;
@@ -423,9 +422,15 @@ option{
     font-size: 1.5rem;
     margin-left: 3rem;
 }
+.containerProducts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .soldOut{
     background-color: red;
+    margin-top: 1rem;
     padding: 7px 10px;
     border-radius: 10px;
 }
