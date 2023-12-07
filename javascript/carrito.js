@@ -16,11 +16,12 @@ const showProduct = document.getElementById('showProducts')
 const cart = document.getElementById('showCart')
 const number = document.getElementById('number')
 const total = document.getElementById('total')
+const buy = document.getElementById('buy')
 const body = document.querySelector('body')
 const closeCart = document.getElementById('closeCart')
 
 
-let list = [];
+let list = getDataToLocalStorage['list'] || [];
 let totalValue = 0;
 
 
@@ -62,26 +63,51 @@ function seedata() {
         
     }
 }
+  
+
 
 function purchase(indice) {
 
-    list.push({nombre: products[indice].nombre, precio: products[indice].precio})
-
-    let van = true
-    let i = 0
-    while(van == true){
-        if(products[i].nombre == products[indice].nombre){
-            products[i].cantidad -= 1
-            seedata()
-            van = false
+    let exist = true;
+    let amountCart = 1;
+    for (let i = 0; i < list.length; i++) {
+        
+        if (list[i].nombre == products[indice].nombre ) {
+            exist = false
         }
-        saveDataToLocalStorage('products',products)
-        i += 1
     }
-    number.innerHTML = `<p>${list.length}</p>`
-    number.style.visibility = 'visible'
-    return list
-
+    if (exist == true) {
+        list.push({nombre: products[indice].nombre, precio: products[indice].precio, cantidad: amountCart})
+        let van = true
+        let i = 0
+        while(van == true){
+            if(products[i].nombre == products[indice].nombre){
+                products[i].cantidad -= 1
+                seedata()
+                van = false
+            }
+            saveDataToLocalStorage('products',products)
+            saveDataToLocalStorage('list',list)
+            i += 1
+        }
+        number.innerHTML = `<p>${list.length}</p>`
+        number.style.visibility = 'visible'
+        showListItems()
+    }
+    let counter = 0;
+    if (exist == false) {
+        amountCart = amountCart + 1;
+        for (let i = 0; i < list.length; i++) {
+        if (list[i].nombre === products[indice].nombre) {
+            list[i].cantidad = amountCart; // Actualizar cantidad en el objeto original
+            saveDataToLocalStorage('list', list); // Guardar la lista actualizada en el localStorage
+            counter++;
+            break;
+        }
+        }
+    }
+    showListItems()
+    return list     
 }
 
 cart.addEventListener('click',function () {
@@ -93,9 +119,8 @@ cart.addEventListener('click',function () {
 function showListItems() {
     productsInCart.innerHTML = ""
     totalValue = 0
-
+    list = getDataToLocalStorage('list')
     for (let i = 0; i < list.length; i++) {
-        
         productsInCart.innerHTML += `<div class="productsInCarts">
             <div class="productInfo">
                 <h2 class="cartTitule">${list[i].nombre}</h2>
@@ -103,13 +128,13 @@ function showListItems() {
             </div>
             <div class="quantityProducts">
                 <img onclick=deleteP(${i}) class="trash" src="assets/trash.svg" alt="">
-                <input class="amount" type="number" min="0" max="99" id="" placeholder="0">
+                <p class="amount">${list[i].cantidad}</p>
             </div>
         </div>`
         
         totalValue += parseInt(list[i].precio)
     }
-    totalValue.innerHTML += `<p class="total">Valor Total: $${totalValue}</p>`
+    total.innerHTML = `Valor Total: $${totalValue}`
 }
 
 function deleteP(indice) {
@@ -122,10 +147,10 @@ function deleteP(indice) {
             list.splice(indice,1)
             van = false
         }
-        
         i += 1
     }
     saveDataToLocalStorage('products',products)
+    saveDataToLocalStorage('list',list)
     number.innerHTML = `<p>${list.length}</p>`
     if(list.length == 0){
         number.style.visibility = 'hidden'

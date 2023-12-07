@@ -29,15 +29,16 @@
        <div class="drop-menu" id="drop-menu">
            <div class="search">
                 <h3 class="titule-search">Buscar</h3>
-                <input class="input-search" type="search" name="" id="">
+                <input class="input-search" type="search" name="" id="search">
            </div>
            <div class="categories">
                 <h3>Categorias</h3>
                 <ul class="list-categories">
-                    <li id="sport" class="item-categories">Deportivas</li>
+                    <li id="sport" class="item-categories">Deportiva</li>
                     <li id="naked" class="item-categories">Naked</li>
                     <li id="adventure" class="item-categories">Adventure</li>
                     <li id="cross" class="item-categories">Cross</li>
+                    <li id="all" class="item-categories">Mostrar todas</li>
                 </ul>
            </div>
            <button id="open-form">Agregar SuperBike</button>
@@ -84,7 +85,7 @@
                     <input id="txtCategory" class="txtForm" type="text" list="list">
                     <datalist id="list">
                         <option value="Naked"></option>
-                        <option value="Deportivas"></option>
+                        <option value="Deportiva"></option>
                         <option value="Adventure"></option>
                         <option value="Cross"></option>
                     </datalist>
@@ -152,12 +153,13 @@
                     </div>
                     <div class="quantityProducts">
                         <img class="trash" src="assets/trash.svg" alt="">
-                        <input class="amount" type="number" min="0" max="99" id="" placeholder="0">
+                        <p class="amount">0</p>
+                        <!-- <input class="amount" type="number" min="0" max="99" id="" placeholder="0"> -->
                     </div>
                 </div>
             </div>
             
-            <div class="buy">
+            <div class="buy" id="buy">
                 <p id="total" class="total">Total:</p>
                 <button class="btnBuy">Confirmar compra</button>
             </div>

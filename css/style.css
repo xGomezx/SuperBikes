@@ -117,6 +117,9 @@ nav{
 #cross:hover{
     background-color: rgb(87, 86, 86);
 }
+#all:hover{
+    background-color: rgb(87, 86, 86);
+}
 
 /* targetas de productos */
 main{
@@ -147,6 +150,9 @@ main{
     justify-content: space-evenly;
     font-size: 1.1rem;
     /* position: fixed; */
+}
+.filter{
+    display: none;
 }
 .product-card:hover{
     box-shadow: 7px 0 45px rgb(115, 115, 115);
@@ -366,15 +372,17 @@ option{
     display: flex;
 }
 .productInfo h2 {
-    font-size: 1.3rem;
+    width: 40%;
+    font-size: 1.5rem;
     text-align: center;
 }
 .priceCart{
     font-size: 1.1rem;
-    width: auto;
-    padding-left: 2.5rem;
+    width: 30%;
+    padding-left: 4rem;
 }
 .quantityProducts{
+    width: 30%;
     display: grid;
     flex-flow: column;
     height: 100%;
@@ -407,6 +415,7 @@ option{
 }
 .btnBuy{
     width: 35%;
+    margin-top: 2rem;
     padding: 0.5rem 0;
     border-radius: 0.3rem;
     font-size: 1.2rem;
