@@ -19,6 +19,7 @@ const total = document.getElementById('total')
 const buy = document.getElementById('buy')
 const body = document.querySelector('body')
 const closeCart = document.getElementById('closeCart')
+const deleteCart = document.getElementById('emptyCart')
 
 
 let list = getDataToLocalStorage['list'] || [];
@@ -65,7 +66,6 @@ function seedata() {
 }
   
 
-
 function purchase(indice) {
 
     let exist = true;
@@ -76,6 +76,22 @@ function purchase(indice) {
             exist = false
         }
     }
+    if (exist == false) {
+        updateAmount(indice)
+        let van = true
+        let i = 0
+        while(van == true){
+            if(products[i].nombre == products[indice].nombre){
+                products[i].cantidad -= 1
+                seedata()
+                van = false
+            }
+            saveDataToLocalStorage('products',products)
+            saveDataToLocalStorage('list',list)
+            i += 1
+        }
+        showListItems()
+       }
     if (exist == true) {
         list.push({nombre: products[indice].nombre, precio: products[indice].precio, cantidad: amountCart})
         let van = true
@@ -91,27 +107,27 @@ function purchase(indice) {
             i += 1
         }
         number.innerHTML = `<p>${list.length}</p>`
-        number.style.visibility = 'visible'
-        showListItems()
+          number.style.visibility = 'visible'
     }
-    let counter = 0;
-    if (exist == false) {
-        amountCart = amountCart + 1;
-        for (let i = 0; i < list.length; i++) {
-        if (list[i].nombre === products[indice].nombre) {
-            list[i].cantidad = amountCart; // Actualizar cantidad en el objeto original
-            saveDataToLocalStorage('list', list); // Guardar la lista actualizada en el localStorage
-            counter++;
-            break;
-        }
-        }
-    }
+
     showListItems()
     return list     
 }
 
+function updateAmount(indice) {
+    for (let i = 0; i < list.length; i++) {
+      if (list[i].nombre === products[indice].nombre) {
+        list[i].cantidad += 1;
+        saveDataToLocalStorage('list', list);
+        break;
+      }
+    }
+}
+
+
+
+
 cart.addEventListener('click',function () {
-    body.style.overflow = 'hidden'
     shoppingCart.style.visibility = 'visible'
     showListItems()
 })
@@ -142,7 +158,7 @@ function deleteP(indice) {
     let i = 0
     while(van == true){
         if(products[i].nombre == list[indice].nombre){
-            products[i].cantidad += 1
+            products[i].cantidad += list[indice].cantidad
             seedata()
             list.splice(indice,1)
             van = false
@@ -162,3 +178,38 @@ closeCart.addEventListener('click',()=>{
     body.style.overflow = 'auto'
     shoppingCart.style.visibility = 'hidden'
 })
+
+
+
+function emptyCart() {
+    for (let i = 0; i < list.length; i++) {
+        let productIndex = products.findIndex(product => product.nombre === list[i].nombre);
+        if (productIndex !== -1) {
+            products[productIndex].cantidad += list[i].cantidad;
+        }
+    }
+    list = [];
+    saveDataToLocalStorage('list', list);
+    saveDataToLocalStorage('products', products);
+
+    seedata();
+    showListItems();
+    number.style.visibility = 'hidden';
+}
+
+
+deleteCart.addEventListener('click', emptyCart);
+
+
+function completePurchase() {
+
+    list = [];
+    saveDataToLocalStorage('list', list);
+  
+    showListItems();
+    number.style.visibility = 'hidden';
+
+    alert('¡Compra realizada con éxito!');
+}
+
+buy.addEventListener('click', completePurchase);

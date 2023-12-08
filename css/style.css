@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Vollkorn&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    font-family: 'Vollkorn', serif;
 }
 body{
     background-color: #141c29;
@@ -28,6 +31,11 @@ nav{
     font-size: 1.5rem;
     margin-left: 1rem;
 }
+.titulePage{
+    font-size: 3rem;
+    font-family: 'Permanent Marker', cursive;
+    display: none;
+}
 .cart{
     display: flex;
     align-items: center;
@@ -39,8 +47,6 @@ nav{
     justify-content: space-between;
     align-items: center;
     width: 43rem; 
-
-   
 }
 .img-brands{
     width: 8rem;
@@ -60,7 +66,7 @@ nav{
     padding: 2rem 0;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .4);
     border-radius: 0 0.5rem 0.5rem 0 ;
-    position: fixed;
+    position: absolute;
     z-index: 1000;
 }
 .search{
@@ -213,7 +219,7 @@ main{
 .products-form{
     background-color: #606060;
     border-radius: 0.3rem;
-    position: fixed;
+    position: absolute;
     width: 95rem;
     height: 47rem;
     z-index: 1500;
@@ -251,7 +257,7 @@ main{
 .form label{
     color: white;
     padding-bottom: 0.5rem;
-   font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 .txtForm{
     background-color: transparent;
@@ -303,6 +309,7 @@ option{
 }
 .containerForm{
     display: flex;
+
 }
 
 
@@ -312,7 +319,7 @@ option{
     width: 35rem;
     height: 87vh;
     background-color: #141c29;
-    position: fixed;
+    position: absolute;
     right: 0;
     margin:1rem 1rem 0 0;
     border-radius: 2rem;
@@ -327,7 +334,7 @@ option{
 }
 #number{
     background-color: red;
-    position: fixed;
+    position: absolute;
     font-size: 1.5rem;
     padding: 0.2rem 0.4rem;
     border-radius: 50%;
@@ -442,4 +449,232 @@ option{
     margin-top: 1rem;
     padding: 7px 10px;
     border-radius: 10px;
+}
+
+
+@media(max-width: 1279px){
+    nav{
+        padding: 1.5rem 0;
+    }
+    .img-brands{
+        display: none;
+    }
+    .brands{
+        justify-content: center;
+    }
+    .icon-text{
+        display: none;
+    }
+    .icons-nav{
+        width: 4rem;
+        height: 4rem;
+    }
+    .drop-menu {
+        width: 24rem;
+        height: 32rem;
+    }
+    .titulePage{
+        display: inline;
+    }
+    .search{
+        font-size: 1.5rem;
+    }
+    .search input{
+        width: 15rem;
+        padding: 0.2rem;
+    }
+    .categories {
+        width: 20rem;
+        font-size: 1.5rem;
+    }
+    .drop-menu button {
+        width: 15rem;
+        font-size: 1rem;
+    }
+    .products-form{
+        width: 70%;
+        height: auto;
+    
+    }
+    .products-form h2 {
+        font-size: 2rem;
+    }
+    .containerForm {
+        flex-flow: column wrap;
+        align-content: center;
+        width: 90%;
+    }
+    .form label{
+        font-size: 1.5rem;
+    }
+    .form{
+        width: 90%;
+        margin-bottom: 3rem;
+    }
+    .txtForm {
+        height: 2.5rem;
+        font-size: 1.5rem;
+    }
+    .btnForm {
+        width: 15rem;
+        height: 3rem;
+        margin-bottom: 3rem;
+        font-size: 1.5rem;
+        padding: 0;
+    }
+    .product-card{
+        width: 20rem;
+    }
+    .img-product{
+        height: 11rem;
+    }
+    .product-description{
+        font-size: 1rem;
+    }
+    .product-info{
+        font-size: 1rem;
+    }
+    .p-price{
+        font-size: 1.2rem;
+    }
+}
+
+@media(max-width: 920px){
+    /* nadita */
+}
+
+@media(max-width: 768px){
+    .titulePage{
+        font-size: 2rem;
+    }
+    .icons-nav{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    #number{
+        font-size: 1rem;
+        margin-bottom: 3rem;
+    }
+    .products-form {
+        width: 90%;
+        height: auto;
+    }
+    .form{
+        padding-left: 3rem;
+    }
+    .form label {
+        font-size: 1rem;
+    }
+    .txtForm {
+        height: 2rem;
+        font-size: 1rem;
+    }
+    .btnForm {
+        width: 11rem;
+        height: 2.5rem;
+        margin-bottom: 3rem;
+        font-size: 1.2rem;
+    }
+    .selects{
+        font-size: 1rem;
+    }
+    .shoppingCart{
+        width: 28rem;
+    }
+    .productInfo h2 {
+        align-self: center;
+        font-size: 1.2rem;
+        align-self: center;
+    }
+    .priceCart{
+        padding-left: 2rem;
+        padding-right: 1rem;
+        font-size: 1rem;
+        align-self: center;
+        width: 33%;
+    }
+    .btnBuy{
+        width: 40%;
+    }
+}
+@media(max-width: 480px){
+
+    .titulePage{
+        font-size: 1.7rem;
+    }
+    .drop-menu {
+        width: 20rem;
+        height: 27rem;
+    }
+    .search{
+        font-size: 1rem;
+    }
+    .search input{
+        width: 13rem;
+        padding: 0.1rem;
+    }
+    .categories {
+        width: 15rem;
+        font-size: 1rem;
+    }
+    .drop-menu button{
+        width: 12rem;
+    }
+    .shoppingCart {
+        width: 21rem;
+    }
+    .yourCart{
+        font-size: 2rem;
+    }
+    .close-form{
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 2rem;
+    }
+    #closeCart{
+        margin-right: 1rem;
+    }
+    #emptyCart{
+        font-size: 1rem;
+        width: 10rem;
+        margin: 2rem 0 0 2rem;
+    }
+    .productsInCarts{
+        width: 90%;
+    }
+    .productInfo h2{
+        font-size: 1rem;
+    }
+    .priceCart{
+        padding-left: 0.7rem;
+        font-size: 1rem;
+        width: 45%;
+    }
+    .total{
+        font-size: 1.3rem;
+        margin-left: 1rem;
+    }
+    .btnBuy{
+        width: 50%;
+        font-size: 1rem;
+    }
+    .form{
+        padding-left: 1rem;
+    }
+    .close-form{
+        margin-right: 0.5rem;
+    }
+    .product-card{
+        width: 18rem;
+    }
+    .img-product{
+        height: 9rem;
+    }
+    .titule-Product{
+        font-size: 1.5rem;
+    }
+    .product-description{
+        width: 85%;
+    }
+
 }
