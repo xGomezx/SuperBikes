@@ -44,7 +44,7 @@ add.addEventListener('click',function(event){
     const amount = txtAmount.value
     const price = txtPrice.value
 
-    let verify = true//validateData();
+    let verify = validateData();
 
     if(verify == true){
         let existence = validateExistence()
