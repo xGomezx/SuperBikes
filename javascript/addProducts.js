@@ -19,7 +19,16 @@ function getDataToLocalStorage(key) {
     let data = JSON.parse(localStorage.getItem(key))
     return data
 }
-let products = getDataToLocalStorage('products') || []
+let products = getDataToLocalStorage('products') || [
+    {
+        nombre: "KTM Super Duke 1290r",
+        urlImagen: "https://lamoto.com.ar/wp-content/uploads/2023/03/KTM-1290-Super-Duke-RR-2023-diagonal.jpg",
+        descripcion: "La KTM Super Duke 1290: una naked de alta potencia y agilidad con un motor V-twin de 1301 cc, tecnología avanzada y diseño agresivo para una experiencia de conducción emocionante.",
+        categoria:"Naked",
+        cantidad:4,
+        precio:120000000
+    }
+]
 
 function validateExistence(){
 
